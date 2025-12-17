@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Dic 17, 2025 alle 19:08
+-- Creato il: Dic 17, 2025 alle 20:04
 -- Versione del server: 11.4.9-MariaDB-deb12
 -- Versione PHP: 8.4.14
 
@@ -411,20 +411,20 @@ INSERT INTO `servizio_calendario` (`c_idservizio`, `c_data_inizio`, `c_data_fine
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `servizio_eccezzioni`
+-- Struttura della tabella `servizio_eccezioni`
 --
 
-CREATE TABLE `servizio_eccezzioni` (
+CREATE TABLE `servizio_eccezioni` (
   `c_idservizio` int(11) NOT NULL,
   `c_data` date NOT NULL,
   `c_tipo` char(1) NOT NULL
 ) ;
 
 --
--- Dump dei dati per la tabella `servizio_eccezzioni`
+-- Dump dei dati per la tabella `servizio_eccezioni`
 --
 
-INSERT INTO `servizio_eccezzioni` (`c_idservizio`, `c_data`, `c_tipo`) VALUES
+INSERT INTO `servizio_eccezioni` (`c_idservizio`, `c_data`, `c_tipo`) VALUES
 (1, '2025-05-01', 'D'),
 (2, '2025-05-01', 'D');
 
@@ -724,9 +724,9 @@ ALTER TABLE `servizio_calendario`
   ADD KEY `fk_cal_servizio_idx` (`c_idservizio`);
 
 --
--- Indici per le tabelle `servizio_eccezzioni`
+-- Indici per le tabelle `servizio_eccezioni`
 --
-ALTER TABLE `servizio_eccezzioni`
+ALTER TABLE `servizio_eccezioni`
   ADD PRIMARY KEY (`c_idservizio`,`c_data`),
   ADD KEY `fk_eccezioni_servizio_idx` (`c_idservizio`);
 
@@ -970,9 +970,9 @@ ALTER TABLE `servizio_calendario`
   ADD CONSTRAINT `fk_cal_servizio` FOREIGN KEY (`c_idservizio`) REFERENCES `servizio` (`c_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `servizio_eccezzioni`
+-- Limiti per la tabella `servizio_eccezioni`
 --
-ALTER TABLE `servizio_eccezzioni`
+ALTER TABLE `servizio_eccezioni`
   ADD CONSTRAINT `fk_eccezioni_servizio` FOREIGN KEY (`c_idservizio`) REFERENCES `servizio` (`c_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
